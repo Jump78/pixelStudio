@@ -29,6 +29,10 @@ li:hover{
 	clear: both;
 }
 
+.selected{
+	border-radius:50%;
+}
+
 #palette{
 	background-color: #ddd;
 	width: 20%;
