@@ -1,3 +1,50 @@
 body{
 	margin: 0;
 }
+
+h1{
+	width: 20%;
+	margin: 0 auto;
+}
+
+ul{
+	list-style: none;
+	width: 80%;
+	height: 100%;
+}
+
+li{
+	margin: 5px;
+	float: left;
+	width: 30px;
+	height: 30px;
+	border: 1px solid #ddd;
+}
+
+li:hover{
+	border: 1px solid black;
+}
+
+.clear{
+	clear: both;
+}
+
+#palette{
+	background-color: #ddd;
+	width: 20%;
+	float: left;
+}
+
+#paletteColor li{
+	background-color: red;
+}
+
+#paletteTool{
+	border-bottom: 1px solid red;
+}
+
+#paletteTool li{
+	background-image: url('../images/pinceau.jpg');
+	background-repeat: no-repeat;
+	background-size: 100%;
+}

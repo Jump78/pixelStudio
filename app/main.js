@@ -1,0 +1,1 @@
+pixelStudio.init();
