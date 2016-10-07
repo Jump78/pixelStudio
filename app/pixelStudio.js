@@ -12,7 +12,7 @@ var pixelStudio = {
 			new Color('noir',[0,0,0]),
 		];
 
-		this.palette.initColor(colors);
+		this.paletteColor.initColor(colors);
 	},
 }
 

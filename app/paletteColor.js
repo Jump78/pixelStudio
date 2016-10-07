@@ -1,4 +1,4 @@
-pixelStudio.palette = {
+pixelStudio.paletteColor = {
 
 	colors: [],
 
@@ -24,7 +24,7 @@ pixelStudio.palette = {
 		
 		$('#paletteColor').on('click','li',function(e){
 			var index = $(this).index();
-			pixelStudio.palette.selectColor(pixelStudio.palette.colors[index])
+			pixelStudio.paletteColor.selectColor(pixelStudio.paletteColor.colors[index])
 		})
 	
 	},
