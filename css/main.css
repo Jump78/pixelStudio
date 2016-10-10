@@ -9,8 +9,10 @@ h1{
 
 ul{
 	list-style: none;
-	width: 80%;
+	width: 100%;
 	height: 100%;
+	padding: 0;
+	margin: 10px 0;
 }
 
 li{
@@ -36,8 +38,9 @@ li:hover{
 
 #palette{
 	background-color: #ddd;
-	width: 20%;
+	width: 15%;
 	float: left;
+	padding: 25px;
 }
 
 #paletteColor li{

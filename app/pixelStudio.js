@@ -14,18 +14,20 @@ var pixelStudio = {
 
 		this.paletteColor.initColor(colors);
 
-		function pinceau(){
-			console.log('pinceau')
-		}
+
 		function gomme(){
 			console.log('gomme')
 		}
 		let tools = [
-			new Tool('pinceau', '../images/pinceau.jpg',pinceau),
-			new Tool('gomme', '../images/pinceau.jpg'),
+			new Tool('pinceau', 'images/pinceau.jpg',function(){
+				console.log('pinceau')
+			}),
+			new Tool('gomme', 'images/gomme.png',gomme),
 		];
 		
 		this.paletteTool.initTool(tools);
+
+		console.log('Pret au décollage');
 	},
 }
 

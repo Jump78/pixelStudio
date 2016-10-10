@@ -26,6 +26,7 @@ pixelStudio.paletteColor = {
 			var index = $(this).index();
 			pixelStudio.paletteColor.selectColor(pixelStudio.paletteColor.colors[index])
 		})
+
 	
 	},
 
