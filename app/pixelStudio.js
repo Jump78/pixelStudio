@@ -26,7 +26,7 @@ var pixelStudio = {
 		];
 		
 		this.paletteTool.initTool(tools);
-
+		this.canvas.init(1000,600,20, '#zoneDessin');
 		console.log('Pret au décollage');
 	},
 }
