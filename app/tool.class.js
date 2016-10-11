@@ -5,13 +5,8 @@ class Tool{
 	 * @param  {[string]} icone URI vers l'icone
 	 * @param {function} fonction Utilite de l'outils
 	 */
-	constructor(name, icone, fonction){
+	constructor(name, icone){
 		this.name = name;
 		this.icone = icone;
-		this.use = fonction || this.default;
-	}
-
-	default(){
-		console.log('Non paramétré');
 	}
 }

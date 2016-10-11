@@ -1,6 +1,9 @@
 var pixelStudio = {
 	init: function(){
 
+		this.canvas.init(1100,window.innerHeight-50,80,new Color('grey',[155,155,155])
+		,'#zoneDessin');
+		
 		let colors = [
 			new Color('noir',[0,0,0]),
 			new Color('cyan',[0,255,255]),
@@ -15,18 +18,11 @@ var pixelStudio = {
 		this.paletteColor.initColor(colors);
 
 
-		function gomme(){
-			console.log('gomme')
-		}
 		let tools = [
-			new Tool('pinceau', 'images/pinceau.jpg',function(){
-				console.log('pinceau')
-			}),
-			new Tool('gomme', 'images/gomme.png',gomme),
+			new Pencil(this.canvas),
+			new Eraser(this.canvas),
 		];
-		
 		this.paletteTool.initTool(tools);
-		this.canvas.init(1000,600,1000, '#zoneDessin');
 		console.log('Pret au décollage');
 	},
 }

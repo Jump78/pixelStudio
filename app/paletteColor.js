@@ -35,5 +35,9 @@ pixelStudio.paletteColor = {
 		$('#paletteColor li').removeClass('selected');
 		$('#paletteColor li').eq(color.id).addClass('selected');
 
-	}
+	},
+
+	getSelected(){
+		return this.colorSelected;
+	},	
 }

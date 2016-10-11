@@ -20,44 +20,32 @@ pixelStudio.canvas = {
 	 * @param  {[string]} html 		   Element html ou est accroche me canvas
 	 * @return {[type]}              [description]
 	 */
-	init(width, height, nbPixelWidth, html){
+	init(width, height, nbPixelWidth, bgColor,html){
 	
 		this.pixelDimension = Math.floor(width/nbPixelWidth);
 
 		this.nbPixel.width = nbPixelWidth;
 		this.nbPixel.height = Math.floor(height/this.pixelDimension);
 
+		this.bgColor = bgColor;
+
 		this.screen = {
 			width: this.nbPixel.width*this.pixelDimension,
 			height: this.nbPixel.height*this.pixelDimension,
 		}
 
-		var canvas = document.createElement("canvas");
-		this.context = canvas.getContext("2d");
-		canvas.setAttribute('width',this.screen.width);
-		canvas.setAttribute('height',this.screen.height);
+		this.$canvas = $('<canvas></canvas>');
+		this.context = this.$canvas[0].getContext("2d");
+		this.$canvas.attr('width',this.screen.width);
+		this.$canvas.attr('height',this.screen.height);
 
-/*		var nbPixelTotal = (width*height)/(this.pixelDimension*this.pixelDimension)
-		var colonne = 0;
-		var ligne = 0;
+		this.context.fillStyle = this.bgColor.to_string();
+    	this.context.fillRect(0,0,this.$canvas.attr('width') ,this.$canvas.attr('height'));
 
-		for (var i = 0; i < nbPixelTotal; i++) {
-			
-			if (i == nbPixelWidth) {
-				ligne++;
-				colonne = 0;
-			}
-			
-			var x = this.pixelDimension*colonne;
-			var y = this.pixelDimension*ligne;
+		$(html).append(this.$canvas);
 
-			var pixel = new Pixel(x,y);
-
-			this.collectionPixel.push(pixel);
-			colonne++;
-		}*/
-
-		$(html).append(canvas);
+		this.$canvas.on('mouseup mousemove mousedown',this.on_mouse_event);
+		
 		console.log('Le canvas est dans la place');
 	},
 	/**
@@ -67,11 +55,30 @@ pixelStudio.canvas = {
 	 * @param  {Color} color 	 Objet instance de Color
 	 */
 	draw(x ,y ,color){
-		let relativeX = x* this.pixelDimension,
-			relativeY = y* this.pixelDimension;
+		let relativeX = (x-1)* this.pixelDimension,
+			relativeY = (y-1)* this.pixelDimension;
 
-		this.context.clearRect(relativeX,relativeY,this.pixelDimension ,this.pixelDimension);
     	this.context.fillStyle = color.to_string();
     	this.context.fillRect (relativeX,relativeY,this.pixelDimension ,this.pixelDimension);
-	}
+	},
+
+	on_mouse_event(e){
+		let ps = pixelStudio,
+			tool = ps.paletteTool.getSelected(),
+			type = 'on_'+e.type;
+
+		if (tool[type]) tool[type](e);
+	},
+
+	screenToCanvas(e){
+		let offset=this.$canvas.offset();
+		return {
+			x: Math.floor((e.clientX-offset.left)/this.pixelDimension)+1,
+			y: Math.floor((e.clientY-offset.top)/this.pixelDimension)+1
+		}
+	},	
+
+	getBg(){
+		return this.bgColor;
+	},
 }

@@ -32,5 +32,9 @@ pixelStudio.paletteTool = {
 		this.toolSelected = tool;
 		$('#paletteTool li').removeClass('selected');
 		$('#paletteTool li').eq(tool.id).addClass('selected');
-	}
+	},
+
+	getSelected(){
+		return this.toolSelected;
+	},
 }

@@ -58,7 +58,7 @@ li:hover{
 	border: 1px solid red;
 }
 
-#zoneDessin{
+#zoneDessin canvas{
 	float: left;
 	border: 1px solid orange;
 	margin-left:20px;
